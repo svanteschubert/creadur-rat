@@ -47,7 +47,13 @@ class FilesReportable implements IReportable
             throws IOException
     {
         final File currentDir = new File( System.getProperty( "user.dir" ) ).getCanonicalFile();
+        System.out.println("CurrenDirFilesReportable:" + currentDir.getAbsolutePath());
+        if(currentDir.getAbsolutePath().contains("schema2template")){
+            System.err.println("starting debugging");
+        }
+
         final File f = basedir.getCanonicalFile();
+        System.out.println("baseDir-A:" + f.getAbsolutePath());
         if ( currentDir.equals( f ) )
         {
             this.basedir = null;
@@ -56,6 +62,7 @@ class FilesReportable implements IReportable
         {
             this.basedir = basedir;
         }
+        System.out.println("baseDir-B:" + this.basedir);
         this.files = files;
     }
 
@@ -63,7 +70,15 @@ class FilesReportable implements IReportable
     {
         FileDocument document = new FileDocument();
         for (String file : files) {
-            document.setFile(new File(basedir, file));
+            if(basedir == null){
+                System.out.println("*******The baseDir:" + null + " and the file path is '" + file + "'!");
+            }else{
+                System.out.println("*******The baseDir:" + basedir.getAbsolutePath() + " and the file path is '" + file + "'!");
+            }
+            System.out.println("*******UserDir:'" + System.getProperty( "user.dir" ) + "'!");
+            File newF = new File(basedir, file);
+            System.out.println("*******newF:'" + newF.getAbsolutePath() + "'!");
+            document.setFile(newF);
             document.getMetaData().clear();
             report.report(document);
         }

@@ -20,7 +20,7 @@
   <parent>
     <artifactId>apache-rat-project</artifactId>
     <groupId>org.apache.rat</groupId>
-    <version>0.15-SNAPSHOT</version>
+    <version>0.15-Svante</version>
     <relativePath>..</relativePath>
   </parent>
   <artifactId>apache-rat-plugin</artifactId>
@@ -181,16 +181,19 @@
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-artifact</artifactId>
       <version>${mavenVersion}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-artifact-manager</artifactId>
       <version>${mavenVersion}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-model</artifactId>
       <version>${mavenVersion}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
@@ -202,6 +205,7 @@
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-project</artifactId>
       <version>${mavenVersion}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
